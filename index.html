@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .container {
+        text-align: center;
+        padding: 60px 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1s ease-in;
+        max-width: 600px;
+        margin: 20px;
+      }
+
+      h1 {
+        font-size: 3.5em;
+        color: #667eea;
+        margin-bottom: 20px;
+        animation: slideDown 0.8s ease-out;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .wave {
+        display: inline-block;
+        animation: wave 1.5s ease-in-out infinite;
+        transform-origin: 70% 70%;
+        font-size: 1.2em;
+      }
+
+      p {
+        font-size: 1.3em;
+        color: #555;
+        margin-top: 20px;
+        animation: fadeIn 1.5s ease-in;
+      }
+
+      .decorative-line {
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        margin: 20px auto;
+        border-radius: 2px;
+        animation: expandWidth 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes wave {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(20deg);
+        }
+        75% {
+          transform: rotate(-20deg);
+        }
+      }
+
+      @keyframes expandWidth {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2.5em;
+        }
+        .container {
+          padding: 40px 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello User <span class="wave">👋</span></h1>
+      <div class="decorative-line"></div>
+      <p>Welcome! We're glad to have you here.</p>
+    </div>
+  </body>
+</html>

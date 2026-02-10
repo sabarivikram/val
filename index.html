@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome</title>
+    <title>Be My Valentine?</title>
     <style>
       * {
         margin: 0;
@@ -12,116 +12,912 @@
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: "Comic Sans MS", "Segoe UI", cursive, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #ff6b9d 0%,
+          #ffc3e1 50%,
+          #ff6b9d 100%
+        );
         min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        position: relative;
       }
 
       .container {
         text-align: center;
-        padding: 60px 40px;
+        padding: 50px 40px;
         background: rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        animation: fadeIn 1s ease-in;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4);
         max-width: 600px;
-        margin: 20px;
+        z-index: 1;
+      }
+
+      .question-row {
+        margin-bottom: 40px;
       }
 
       h1 {
-        font-size: 3.5em;
-        color: #667eea;
-        margin-bottom: 20px;
-        animation: slideDown 0.8s ease-out;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        font-size: 2.5em;
+        color: #ff1744;
+        margin-bottom: 10px;
+        animation: heartbeat 1.5s ease-in-out infinite;
       }
 
-      .wave {
-        display: inline-block;
-        animation: wave 1.5s ease-in-out infinite;
-        transform-origin: 70% 70%;
-        font-size: 1.2em;
-      }
-
-      p {
-        font-size: 1.3em;
-        color: #555;
-        margin-top: 20px;
-        animation: fadeIn 1.5s ease-in;
-      }
-
-      .decorative-line {
-        width: 100px;
-        height: 4px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        margin: 20px auto;
-        border-radius: 2px;
-        animation: expandWidth 1s ease-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes wave {
+      @keyframes heartbeat {
         0%,
         100% {
-          transform: rotate(0deg);
+          transform: scale(1);
         }
         25% {
-          transform: rotate(20deg);
+          transform: scale(1.05);
         }
-        75% {
-          transform: rotate(-20deg);
+        50% {
+          transform: scale(1);
         }
       }
 
-      @keyframes expandWidth {
+      .cat-row {
+        margin: 40px 0;
+        position: relative;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      /* CSS Cat - Full body with sitting pose */
+      .cat {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Cat body */
+      .cat-body {
+        width: 80px;
+        height: 70px;
+        background: #ff9800;
+        border-radius: 45% 45% 20% 20%;
+        position: relative;
+        margin: 0 auto;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Cat face */
+      .cat-face {
+        width: 100px;
+        height: 90px;
+        background: #ff9800;
+        border-radius: 45% 45% 50% 50%;
+        position: absolute;
+        top: -85px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Cat ears */
+      .cat-ear-left,
+      .cat-ear-right {
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 40px solid #ff9800;
+        position: absolute;
+        top: -25px;
+      }
+
+      .cat-ear-left {
+        left: -5px;
+        transform: rotate(-20deg);
+      }
+
+      .cat-ear-right {
+        right: -5px;
+        transform: rotate(20deg);
+      }
+
+      /* Inner ear pink */
+      .cat-ear-left::after,
+      .cat-ear-right::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 20px solid #ffb3d9;
+        position: absolute;
+        left: -12px;
+        top: 10px;
+      }
+
+      /* Cat eyes */
+      .cat-eyes {
+        position: absolute;
+        top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 25px;
+      }
+
+      .cat-eye {
+        width: 12px;
+        height: 20px;
+        background: #000;
+        border-radius: 50% 50% 50% 50%;
+        animation: blink 3s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        96%,
+        100% {
+          transform: scaleY(1);
+        }
+        98% {
+          transform: scaleY(0.1);
+        }
+      }
+
+      /* Cat nose */
+      .cat-nose {
+        position: absolute;
+        top: 55px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 10px solid #ff1744;
+        border-radius: 50%;
+      }
+
+      /* Cat mouth */
+      .cat-mouth {
+        position: absolute;
+        top: 63px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 20px;
+        border: 3px solid #000;
+        border-top: none;
+        border-radius: 0 0 50% 50%;
+      }
+
+      /* Cat whiskers */
+      .cat-whiskers {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+      }
+
+      .whisker {
+        position: absolute;
+        width: 35px;
+        height: 2px;
+        background: #000;
+      }
+
+      .whisker-left-1 {
+        left: -35px;
+        top: 0;
+        transform: rotate(-10deg);
+      }
+      .whisker-left-2 {
+        left: -35px;
+        top: 8px;
+      }
+      .whisker-left-3 {
+        left: -35px;
+        top: 16px;
+        transform: rotate(10deg);
+      }
+      .whisker-right-1 {
+        right: -35px;
+        top: 0;
+        transform: rotate(10deg);
+      }
+      .whisker-right-2 {
+        right: -35px;
+        top: 8px;
+      }
+      .whisker-right-3 {
+        right: -35px;
+        top: 16px;
+        transform: rotate(-10deg);
+      }
+
+      /* Cat front legs sitting */
+      .cat-legs {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 40px;
+      }
+
+      .cat-leg {
+        width: 18px;
+        height: 35px;
+        background: #ff9800;
+        border-radius: 0 0 10px 10px;
+      }
+
+      /* Cat paws */
+      .cat-paw {
+        width: 24px;
+        height: 12px;
+        background: #ff9800;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Cat tail - wiggling */
+      .cat-tail {
+        width: 15px;
+        height: 60px;
+        background: #ff9800;
+        border-radius: 15px 15px 8px 8px;
+        position: absolute;
+        bottom: 20px;
+        right: -20px;
+        transform-origin: top center;
+        animation: tailWiggle 1.5s ease-in-out infinite;
+      }
+
+      @keyframes tailWiggle {
+        0%,
+        100% {
+          transform: rotate(-20deg);
+        }
+        50% {
+          transform: rotate(20deg);
+        }
+      }
+
+      .button-row {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      button {
+        padding: 15px 40px;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      #yesBtn {
+        background: linear-gradient(135deg, #ff1744, #ff5252);
+        color: white;
+      }
+
+      #yesBtn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(255, 23, 68, 0.4);
+      }
+
+      #noBtn {
+        background: linear-gradient(135deg, #9e9e9e, #bdbdbd);
+        color: white;
+        position: relative;
+        transition: all 0.2s ease;
+      }
+
+      #noBtn.jumping {
+        position: fixed;
+        z-index: 999;
+      }
+
+      /* CSS Man Character */
+      .man {
+        position: fixed;
+        left: -200px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        z-index: 100;
+      }
+
+      .man.appear {
+        display: block;
+        animation: manEnter 1s ease-out forwards;
+      }
+
+      @keyframes manEnter {
+        to {
+          left: 80px;
+        }
+      }
+
+      /* Man's head */
+      .man-head {
+        width: 80px;
+        height: 80px;
+        background: #ffdbac;
+        border-radius: 50%;
+        position: relative;
+        margin: 0 auto 10px;
+      }
+
+      .man-hair {
+        width: 80px;
+        height: 35px;
+        background: #4a2c2a;
+        border-radius: 50% 50% 40% 40%;
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+      }
+
+      .man-hair::before {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 20px;
+        background: #4a2c2a;
+        border-radius: 50%;
+        top: 10px;
+        left: 10px;
+        box-shadow:
+          20px 0 0 #4a2c2a,
+          40px 0 0 #4a2c2a;
+      }
+
+      .man-hair::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 20px;
+        background: #4a2c2a;
+        border-radius: 50%;
+        top: 3px;
+        left: 5px;
+      }
+
+      .man-eyes {
+        position: absolute;
+        top: 35px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0 20px;
+      }
+
+      .man-eye {
+        width: 10px;
+        height: 10px;
+        background: #000;
+        border-radius: 50%;
+      }
+
+      .man-smile {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 20px;
+        border: 3px solid #000;
+        border-top: none;
+        border-radius: 0 0 50% 50%;
+      }
+
+      /* Man's body */
+      .man-body {
+        width: 60px;
+        height: 80px;
+        background: #2196f3;
+        border-radius: 10px 10px 20px 20px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      /* Man's arms */
+      .man-arm-left,
+      .man-arm-right {
+        width: 15px;
+        height: 60px;
+        background: #ffdbac;
+        border-radius: 10px;
+        position: absolute;
+        top: 5px;
+      }
+
+      .man-arm-left {
+        left: -10px;
+        transform: rotate(-10deg);
+        transform-origin: top center;
+      }
+
+      /* Animation: Hand to mouth then point towards cat */
+      .man.kissing .man-arm-left {
+        animation: kissGesture 3s ease-in-out forwards;
+      }
+
+      @keyframes kissGesture {
+        0% {
+          transform: rotate(-10deg);
+        }
+        20% {
+          transform: rotate(-130deg) translateY(-30px);
+        }
+        40% {
+          transform: rotate(-130deg) translateY(-30px);
+        }
+        60% {
+          transform: rotate(30deg) translateX(20px);
+        }
+        100% {
+          transform: rotate(30deg) translateX(20px);
+        }
+      }
+
+      .man-arm-right {
+        right: -10px;
+        transform: rotate(-20deg);
+      }
+
+      /* Man's hand */
+      .man-hand {
+        width: 18px;
+        height: 18px;
+        background: #ffdbac;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Man's dialog box */
+      .man-dialog {
+        position: fixed;
+        left: 210px;
+        top: 35%;
+        background: white;
+        padding: 20px 25px;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        font-size: 1.1em;
+        color: #333;
+        max-width: 300px;
+        display: none;
+        z-index: 150;
+        animation: dialogFadeIn 0.8s ease-out;
+      }
+
+      .man-dialog::before {
+        content: "";
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 20px solid white;
+      }
+
+      .man-dialog.show {
+        display: block;
+      }
+
+      @keyframes dialogFadeIn {
         from {
-          width: 0;
+          opacity: 0;
+          transform: translateX(-20px);
         }
         to {
-          width: 100px;
+          opacity: 1;
+          transform: translateX(0);
         }
+      }
+
+      /* Final message */
+      .final-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: none;
+        z-index: 300;
+      }
+
+      .final-message.show {
+        display: block;
+        animation: finalFadeIn 2s ease-out;
+      }
+
+      .final-message h1 {
+        font-size: 4em;
+        color: #ff1744;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .final-message .kiss-emoji {
+        font-size: 6em;
+      }
+
+      @keyframes finalFadeIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.5);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      /* Continuous Heart to Scarf emoji animation */
+      .morphing-element {
+        position: fixed;
+        display: none;
+        z-index: 102;
+        font-size: 60px;
+        transition: all 0.3s ease;
+      }
+
+      .morphing-element.animating {
+        display: block;
+        animation: continuousHeartToScarf 5s ease-in-out forwards;
+      }
+
+      @keyframes continuousHeartToScarf {
+        0% {
+          left: 140px;
+          top: 40%;
+          transform: scale(0.7) rotate(0deg);
+          opacity: 1;
+        }
+        20% {
+          left: 25%;
+          top: 43%;
+          transform: scale(0.85) rotate(180deg);
+          opacity: 1;
+        }
+        25% {
+          left: 30%;
+          top: 45%;
+          transform: scale(0.95) rotate(270deg);
+          opacity: 1;
+        }
+        28% {
+          left: 32%;
+          top: 46%;
+          transform: scale(1) rotate(360deg);
+          opacity: 0;
+        }
+        30% {
+          left: 32%;
+          top: 46%;
+          transform: scale(1) rotate(0deg);
+          opacity: 0;
+        }
+        32% {
+          left: 32%;
+          top: 46%;
+          transform: scale(0.9) rotate(10deg);
+          opacity: 1;
+        }
+        45% {
+          left: 40%;
+          top: 50%;
+          transform: scale(0.95) rotate(-15deg);
+          opacity: 1;
+        }
+        60% {
+          left: 47%;
+          top: 55%;
+          transform: scale(1) rotate(-15deg);
+          opacity: 1;
+        }
+        75% {
+          left: 49%;
+          top: 56%;
+          transform: scale(1.05) rotate(20deg);
+          opacity: 1;
+        }
+        90% {
+          left: 50%;
+          top: 61%;
+          transform: scale(1.15) rotate(-10deg);
+          opacity: 1;
+        }
+        100% {
+          left: 50%;
+          top: 61%;
+          transform: scale(1.3) rotate(0deg);
+          opacity: 1;
+        }
+      }
+
+      /* Heart shape that morphs */
+      .morph-shape::before,
+      .morph-shape::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 50px;
+        background: linear-gradient(135deg, #ff1744, #ff5252);
+        border-radius: 30px 30px 0 0;
+        transition: all 0.5s ease;
+      }
+
+      .morph-shape::before {
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        left: 15px;
+      }
+
+      .morph-shape::after {
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+        left: -15px;
+      }
+
+      /* Hide heart, show scarf at midpoint */
+      .morphing-element.animating .morph-shape {
+        animation: hideHeart 5s forwards;
+      }
+
+      @keyframes hideHeart {
+        0%,
+        27% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        28% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+      }
+
+      .scarf-emoji {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        font-size: 60px;
+      }
+
+      .morphing-element.animating .scarf-emoji {
+        animation: showScarf 5s forwards;
+      }
+
+      @keyframes showScarf {
+        0%,
+        30% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0);
+        }
+        32% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      /* Scarf on cat - using emoji */
+      .scarf {
+        position: absolute;
+        top: -75px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        z-index: 10;
+        font-size: 80px;
+      }
+
+      .scarf.visible {
+        display: block;
       }
 
       @media (max-width: 600px) {
         h1 {
-          font-size: 2.5em;
+          font-size: 2em;
         }
-        .container {
-          padding: 40px 30px;
+        button {
+          padding: 12px 30px;
+          font-size: 1.2em;
+        }
+        .man {
+          transform: scale(0.8) translateY(-50%);
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Hello User <span class="wave">👋</span></h1>
-      <div class="decorative-line"></div>
-      <p>Welcome! We're glad to have you here.</p>
+      <!-- Question Row -->
+      <div class="question-row">
+        <h1>Will You Be My Valentine?</h1>
+      </div>
+
+      <!-- Cat Row -->
+      <div class="cat-row">
+        <div class="cat" id="cat">
+          <div class="cat-face">
+            <div class="cat-ear-left"></div>
+            <div class="cat-ear-right"></div>
+            <div class="cat-eyes">
+              <div class="cat-eye"></div>
+              <div class="cat-eye"></div>
+            </div>
+            <div class="cat-nose"></div>
+            <div class="cat-mouth"></div>
+            <div class="cat-whiskers">
+              <div class="whisker whisker-left-1"></div>
+              <div class="whisker whisker-left-2"></div>
+              <div class="whisker whisker-left-3"></div>
+              <div class="whisker whisker-right-1"></div>
+              <div class="whisker whisker-right-2"></div>
+              <div class="whisker whisker-right-3"></div>
+            </div>
+          </div>
+          <div class="cat-body">
+            <div class="cat-legs">
+              <div class="cat-leg">
+                <div class="cat-paw"></div>
+              </div>
+              <div class="cat-leg">
+                <div class="cat-paw"></div>
+              </div>
+            </div>
+            <div class="cat-tail"></div>
+          </div>
+        </div>
+        <div class="scarf" id="scarf">🧣</div>
+      </div>
+
+      <!-- Button Row -->
+      <div class="button-row">
+        <button id="yesBtn">Yes!</button>
+        <button id="noBtn">No</button>
+      </div>
     </div>
+
+    <!-- Animation elements -->
+    <div class="man" id="man">
+      <div class="man-head">
+        <div class="man-hair"></div>
+        <div class="man-eyes">
+          <div class="man-eye"></div>
+          <div class="man-eye"></div>
+        </div>
+        <div class="man-smile"></div>
+      </div>
+      <div class="man-body">
+        <div class="man-arm-left">
+          <div class="man-hand"></div>
+        </div>
+        <div class="man-arm-right"></div>
+      </div>
+    </div>
+
+    <!-- Man's dialog -->
+    <div class="man-dialog" id="manDialog">
+      "You can only fall for me, not to the stairs, or on the roads"
+    </div>
+
+    <!-- Final message -->
+    <div class="final-message" id="finalMessage">
+      <h1>Happy Valentine's Day</h1>
+      <div class="kiss-emoji">😘</div>
+    </div>
+
+    <div class="morphing-element" id="morphingElement">
+      <div class="morph-shape"></div>
+      <div class="scarf-emoji">🧣</div>
+    </div>
+
+    <script>
+      const noBtn = document.getElementById("noBtn");
+      const yesBtn = document.getElementById("yesBtn");
+      const man = document.getElementById("man");
+      const morphingElement = document.getElementById("morphingElement");
+      const cat = document.getElementById("cat");
+      const scarf = document.getElementById("scarf");
+      const manDialog = document.getElementById("manDialog");
+      const finalMessage = document.getElementById("finalMessage");
+      const container = document.querySelector(".container");
+
+      // No button jumping behavior
+      noBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+        const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.classList.add("jumping");
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+      });
+
+      // Yes button animation sequence
+      yesBtn.addEventListener("click", function () {
+        yesBtn.disabled = true;
+        noBtn.disabled = true;
+        noBtn.style.display = "none";
+
+        // Step 1: Man appears and slides in
+        man.classList.add("appear");
+
+        // Step 2: Man does kissing gesture (hand to mouth, then point)
+        setTimeout(() => {
+          man.classList.add("kissing");
+        }, 1000);
+
+        // Step 3: Continuous animation - Heart travels, morphs to scarf, and settles on cat
+        setTimeout(() => {
+          morphingElement.classList.add("animating");
+        }, 2500);
+
+        // Step 4: Show man's dialog after animation completes
+        setTimeout(() => {
+          manDialog.classList.add("show");
+        }, 8000);
+
+        // Step 5: After 5 seconds from dialog, show final message
+        setTimeout(() => {
+          // Hide all elements except background
+          container.style.display = "none";
+          man.style.display = "none";
+          morphingElement.style.display = "none";
+          manDialog.style.display = "none";
+
+          // Show final message
+          finalMessage.classList.add("show");
+        }, 13000); // 8000ms + 5000ms (5 seconds after dialog)
+      });
+
+      // No button jump on hover
+      noBtn.addEventListener("mouseenter", function () {
+        if (!noBtn.classList.contains("jumping")) {
+          const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+          const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+          const randomX = Math.random() * maxX;
+          const randomY = Math.random() * maxY;
+
+          noBtn.classList.add("jumping");
+          noBtn.style.left = randomX + "px";
+          noBtn.style.top = randomY + "px";
+        }
+      });
+    </script>
   </body>
 </html>

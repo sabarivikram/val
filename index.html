@@ -35,6 +35,7 @@
         box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4);
         max-width: 600px;
         z-index: 1;
+        position: relative;
       }
 
       .question-row {
@@ -68,6 +69,15 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
+        padding-right: 0;
+        transition:
+          justify-content 0.8s ease,
+          padding-right 0.8s ease;
+      }
+
+      .cat-row.move-right {
+        justify-content: flex-end;
+        padding-right: 30px;
       }
 
       /* CSS Cat - Full body with sitting pose */
@@ -344,7 +354,7 @@
 
       @keyframes manEnter {
         to {
-          left: 80px;
+          left: calc(50% - 250px);
         }
       }
 
@@ -491,8 +501,8 @@
       /* Man's dialog box */
       .man-dialog {
         position: fixed;
-        left: 210px;
-        top: 35%;
+        left: calc(50% - 100px);
+        top: calc(50% - 150px);
         background: white;
         padding: 20px 25px;
         border-radius: 20px;
@@ -509,8 +519,7 @@
         content: "";
         position: absolute;
         left: -20px;
-        top: 50%;
-        transform: translateY(-50%);
+        bottom: 10px;
         width: 0;
         height: 0;
         border-top: 15px solid transparent;
@@ -587,68 +596,68 @@
 
       @keyframes continuousHeartToScarf {
         0% {
-          left: 140px;
-          top: 40%;
+          left: calc(50% - 210px);
+          top: calc(50% - 35px);
           transform: scale(0.7) rotate(0deg);
           opacity: 1;
         }
         20% {
-          left: 25%;
-          top: 43%;
+          left: calc(50% - 100px);
+          top: calc(50% - 40px);
           transform: scale(0.85) rotate(180deg);
           opacity: 1;
         }
         25% {
-          left: 30%;
-          top: 45%;
+          left: calc(50% - 30px);
+          top: calc(50% - 42px);
           transform: scale(0.95) rotate(270deg);
           opacity: 1;
         }
         28% {
-          left: 32%;
-          top: 46%;
+          left: calc(50% + 20px);
+          top: calc(50% - 45px);
           transform: scale(1) rotate(360deg);
           opacity: 0;
         }
         30% {
-          left: 32%;
-          top: 46%;
+          left: calc(50% + 20px);
+          top: calc(50% - 45px);
           transform: scale(1) rotate(0deg);
           opacity: 0;
         }
         32% {
-          left: 32%;
-          top: 46%;
+          left: calc(50% + 20px);
+          top: calc(50% - 45px);
           transform: scale(0.9) rotate(10deg);
           opacity: 1;
         }
         45% {
-          left: 40%;
-          top: 50%;
+          left: calc(50% + 80px);
+          top: calc(50% - 43px);
           transform: scale(0.95) rotate(-15deg);
           opacity: 1;
         }
         60% {
-          left: 47%;
-          top: 55%;
+          left: calc(50% + 120px);
+          top: calc(50% + 0px);
           transform: scale(1) rotate(-15deg);
           opacity: 1;
         }
         75% {
-          left: 49%;
-          top: 56%;
+          left: calc(50% + 130px);
+          top: calc(50% + 15px);
           transform: scale(1.05) rotate(20deg);
           opacity: 1;
         }
         90% {
-          left: 50%;
-          top: 61%;
+          left: calc(50% + 150px);
+          top: calc(50% + 25px);
           transform: scale(1.15) rotate(-10deg);
           opacity: 1;
         }
         100% {
-          left: 50%;
-          top: 61%;
+          left: calc(52% + 160px);
+          top: calc(50% + 62px);
           transform: scale(1.3) rotate(0deg);
           opacity: 1;
         }
@@ -777,13 +786,13 @@
 
         @keyframes manEnter {
           to {
-            left: 20px;
+            left: 10%;
           }
         }
 
         .man-dialog {
-          left: 130px;
-          top: 30%;
+          left: calc(10% + 100px);
+          top: calc(50% - 150px);
           max-width: 200px;
           padding: 15px 20px;
           font-size: 0.95em;
@@ -794,6 +803,7 @@
           border-bottom: 10px solid transparent;
           border-right: 15px solid white;
           left: -15px;
+          bottom: 10px;
         }
 
         .morphing-element {
@@ -802,68 +812,68 @@
 
         @keyframes continuousHeartToScarf {
           0% {
-            left: 80px;
-            top: 35%;
+            left: calc(10% + 40px);
+            top: calc(50% - 25px);
             transform: scale(0.7) rotate(0deg);
             opacity: 1;
           }
           20% {
-            left: 20%;
-            top: 38%;
+            left: calc(30% - 10px);
+            top: calc(50% - 28px);
             transform: scale(0.85) rotate(180deg);
             opacity: 1;
           }
           25% {
-            left: 25%;
-            top: 42%;
+            left: calc(40% - 10px);
+            top: calc(50% - 30px);
             transform: scale(0.95) rotate(270deg);
             opacity: 1;
           }
           28% {
-            left: 30%;
-            top: 44%;
+            left: calc(50% - 10px);
+            top: calc(50% - 32px);
             transform: scale(1) rotate(360deg);
             opacity: 0;
           }
           30% {
-            left: 30%;
-            top: 44%;
+            left: calc(50% - 10px);
+            top: calc(50% - 32px);
             transform: scale(1) rotate(0deg);
             opacity: 0;
           }
           32% {
-            left: 30%;
-            top: 44%;
+            left: calc(50% - 10px);
+            top: calc(50% - 32px);
             transform: scale(0.9) rotate(10deg);
             opacity: 1;
           }
           45% {
-            left: 40%;
-            top: 48%;
+            left: calc(60%);
+            top: calc(50% - 30px);
             transform: scale(0.95) rotate(-15deg);
             opacity: 1;
           }
           60% {
-            left: 48%;
-            top: 54%;
+            left: calc(65%);
+            top: calc(50% + 5px);
             transform: scale(1) rotate(-15deg);
             opacity: 1;
           }
           75% {
-            left: 49%;
-            top: 56%;
+            left: calc(70%);
+            top: calc(50% + 15px);
             transform: scale(1.05) rotate(20deg);
             opacity: 1;
           }
           90% {
-            left: 50%;
-            top: 60%;
+            left: calc(73%);
+            top: calc(50% + 23px);
             transform: scale(1.15) rotate(-10deg);
             opacity: 1;
           }
           100% {
-            left: 50%;
-            top: 60%;
+            left: calc(75%);
+            top: calc(50% + 28px);
             transform: scale(1.2) rotate(0deg);
             opacity: 1;
           }
@@ -1013,6 +1023,9 @@
         yesBtn.disabled = true;
         noBtn.disabled = true;
         noBtn.style.display = "none";
+
+        // Move cat to the right
+        document.querySelector(".cat-row").classList.add("move-right");
 
         // Step 1: Man appears and slides in
         man.classList.add("appear");

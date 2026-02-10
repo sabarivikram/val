@@ -745,14 +745,155 @@
 
       @media (max-width: 600px) {
         h1 {
-          font-size: 2em;
+          font-size: 1.8em;
         }
+
+        .container {
+          padding: 30px 20px;
+          max-width: 95%;
+        }
+
         button {
           padding: 12px 30px;
           font-size: 1.2em;
         }
+
+        .cat-row {
+          height: 150px;
+        }
+
+        .cat {
+          transform: scale(0.7);
+        }
+
+        .scarf {
+          font-size: 50px;
+          top: -55px;
+        }
+
         .man {
-          transform: scale(0.8) translateY(-50%);
+          transform: scale(0.6) translateY(-50%);
+        }
+
+        @keyframes manEnter {
+          to {
+            left: 20px;
+          }
+        }
+
+        .man-dialog {
+          left: 130px;
+          top: 30%;
+          max-width: 200px;
+          padding: 15px 20px;
+          font-size: 0.95em;
+        }
+
+        .man-dialog::before {
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-right: 15px solid white;
+          left: -15px;
+        }
+
+        .morphing-element {
+          font-size: 40px;
+        }
+
+        @keyframes continuousHeartToScarf {
+          0% {
+            left: 80px;
+            top: 35%;
+            transform: scale(0.7) rotate(0deg);
+            opacity: 1;
+          }
+          20% {
+            left: 20%;
+            top: 38%;
+            transform: scale(0.85) rotate(180deg);
+            opacity: 1;
+          }
+          25% {
+            left: 25%;
+            top: 42%;
+            transform: scale(0.95) rotate(270deg);
+            opacity: 1;
+          }
+          28% {
+            left: 30%;
+            top: 44%;
+            transform: scale(1) rotate(360deg);
+            opacity: 0;
+          }
+          30% {
+            left: 30%;
+            top: 44%;
+            transform: scale(1) rotate(0deg);
+            opacity: 0;
+          }
+          32% {
+            left: 30%;
+            top: 44%;
+            transform: scale(0.9) rotate(10deg);
+            opacity: 1;
+          }
+          45% {
+            left: 40%;
+            top: 48%;
+            transform: scale(0.95) rotate(-15deg);
+            opacity: 1;
+          }
+          60% {
+            left: 48%;
+            top: 54%;
+            transform: scale(1) rotate(-15deg);
+            opacity: 1;
+          }
+          75% {
+            left: 49%;
+            top: 56%;
+            transform: scale(1.05) rotate(20deg);
+            opacity: 1;
+          }
+          90% {
+            left: 50%;
+            top: 60%;
+            transform: scale(1.15) rotate(-10deg);
+            opacity: 1;
+          }
+          100% {
+            left: 50%;
+            top: 60%;
+            transform: scale(1.2) rotate(0deg);
+            opacity: 1;
+          }
+        }
+
+        .morph-shape::before,
+        .morph-shape::after {
+          width: 20px;
+          height: 35px;
+          border-radius: 20px 20px 0 0;
+        }
+
+        .morph-shape::before {
+          left: 10px;
+        }
+
+        .morph-shape::after {
+          left: -10px;
+        }
+
+        .scarf-emoji {
+          font-size: 40px;
+        }
+
+        .final-message h1 {
+          font-size: 2.5em;
+        }
+
+        .final-message .kiss-emoji {
+          font-size: 4em;
         }
       }
     </style>

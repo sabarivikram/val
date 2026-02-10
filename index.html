@@ -508,6 +508,7 @@
         border-radius: 20px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         font-size: 1.1em;
+        font-family: Arial, Helvetica, sans-serif;
         color: #333;
         max-width: 300px;
         display: none;
@@ -1045,7 +1046,7 @@
           manDialog.classList.add("show");
         }, 8000);
 
-        // Step 5: After 5 seconds from dialog, show final message
+        // Step 5: After 7 seconds from dialog, show final message
         setTimeout(() => {
           // Hide all elements except background
           container.style.display = "none";
@@ -1055,7 +1056,7 @@
 
           // Show final message
           finalMessage.classList.add("show");
-        }, 13000); // 8000ms + 5000ms (5 seconds after dialog)
+        }, 15000); // 8000ms + 7000ms (7 seconds after dialog)
       });
 
       // No button jump on hover
